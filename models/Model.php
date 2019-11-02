@@ -109,7 +109,7 @@ abstract class Model extends Db
 
             if(in_array($operator_first, $operators) && in_array($operator_second, $operators) && in_array($logique, $operators)){
 
-                $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ?";
+                $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ? ORDER BY created_at DESC";
 
                 if(!$this->query($sql, [$value_first, $value_second])->error()){
 
@@ -158,6 +158,22 @@ abstract class Model extends Db
     }
 
     /**
+     * @param $action
+     * @param $table
+     * @param $where
+     * @param $like
+     * @return $this
+     */
+    private function actionLike($action, $table, $where, $like){
+
+        $sql = "{$action} FROM {$table} WHERE {$where} LIKE '%{$like}%'";
+        if(!$this->query($sql, [])->error()){
+
+            return $this;
+        }
+    }
+
+    /**
      * @param $wheres
      * @param $orderBy
      * @param $limit
@@ -177,13 +193,19 @@ abstract class Model extends Db
 
     }
 
+    function search($where, $like){
+        $like = trim($like);
+        return $this->actionLike('SELECT *', $this->table, $where, $like)
+                    ->results();
+    }
+
 
     /**
      * @param $wheres
      * @return bool|Db
      */
     function builderGet($wheres){
-        return $this->builderAction('SELECT *', $this->table, $wheres);
+        return $this->builderAction('SELECT *', $this->table, $wheres)->results();
     }
 
     /**

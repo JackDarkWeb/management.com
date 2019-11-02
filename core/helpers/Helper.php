@@ -8,7 +8,7 @@ abstract class Helper
 
     function __construct()
     {
-        //self::$page = $this->request->page;
+        self::$page = $this->request->page;
     }
 
     /**
@@ -17,8 +17,10 @@ abstract class Helper
      */
     static function paginate($count){
         $out = '';
-        for($i = 1; $i <= ceil($count/4); $i++){
-            $out = "<li class='page-item mr-2 $i === $page ? echo active '><a id='page$i' class='page-link rounded-circle' href='?page=$i'>$i <span class='sr-only'>(current)</span></a></li><br/>";
+
+        for($i = 1; $i <= ($count/4); $i++){
+
+            $out = '<li class="page-item mr-2"><a id="page'.$i.'" class="page-link rounded-circle" href="?page='.$i.'">'.$i.'<span class="sr-only">(current)</span></a></li><br/>';
         }
         return $out;
     }
@@ -110,7 +112,9 @@ abstract class Helper
     }
 
     static function slug($string):string {
+
         $str = '';
+        $string = strtolower($string);
 
         if($string !== ''){
             $str = explode(' ', $string);
