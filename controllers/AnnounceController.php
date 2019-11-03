@@ -12,6 +12,8 @@ class AnnounceController extends Controller
         //dd($announces);die();
         //dd(4*($this->request->page-1). ', 4');die();
 
+        //dd(Helper::slug($announces[2]->title));die();
+
         $this->view('announces.index', [
             'announces' => $announces,
         ]);
@@ -31,6 +33,8 @@ class AnnounceController extends Controller
 
 
     function read($id = null, $slug = null){
+
+        //dd($slug);die();
 
         $announce = new Announce();
 
@@ -62,10 +66,17 @@ class AnnounceController extends Controller
     function category(){
 
         //dd($this->request->params);
-        $param = $this->request->params[0];
+        $param = urldecode($this->request->params[0]);
+
 
         $announce = new Announce();
+
+        /*$test = $announce->test(['category', '=', $param]);
+        dd($test);die();*/
+
         $categories = $announce->builderGet(['active', '=', 1, 'AND', 'category', '=', $param]);
+
+        //dd($categories[0]->title);die();
 
         return $this->view('announces.category',[
             'categories' => $categories

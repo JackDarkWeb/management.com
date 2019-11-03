@@ -118,8 +118,9 @@ abstract class Helper
 
         if($string !== ''){
             $str = explode(' ', $string);
+            $str = implode('-', $str);
         }
-        return implode('-', $str);
+        return (str_replace("'", '-', $str));
     }
 
 

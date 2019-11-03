@@ -173,6 +173,7 @@ abstract class Model extends Db
         }
     }
 
+
     /**
      * @param $wheres
      * @param $orderBy
@@ -312,6 +313,38 @@ abstract class Model extends Db
             $this->error = true;
         }
         return $this;
+    }
+
+
+
+
+
+    private function actionTest($action, $table, $where){
+
+        if(gettype($where) == 'array' && count($where) === 3) {
+
+            $operators = ['=', '!=', '<', '>', '<=', '>='];
+
+            $field = $where[0];
+            $operator = $where[1];
+            $value = $where[2];
+
+            if (in_array($operator, $operators)) {
+
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ";
+
+                if (!$this->query($sql, [$value])->error()) {
+
+                    return $this;
+                }
+            }
+        }
+        return false;
+    }
+
+    function test($where){
+        return $this->actionTest('SELECT *', $this->table, $where)
+                    ->results();
     }
 
 }

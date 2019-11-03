@@ -9,6 +9,8 @@
             <h2 class=''>Tous les annonces</h2>
         </div>
 
+        <?if(isset($announces)):?>
+
         <div class="card-deck">
             <? foreach ($announces as $item):?>
                 <div class="card">
@@ -17,7 +19,7 @@
                         <h5 class="card-title"><a href="<?=Router::url("announce/read", ['id' => $item->id, "slug" => $item->slug])?>"><?=$item->title?></a></h5>
                         <p class="card-text"><?=$item->price.'  '.strtoupper($item->devise)?></p>
 
-                        <p class="card-text"><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="/category/<?=$item->category?>"><?=$item->category?></a></p>
+                        <p class="card-text"><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="/announce/category/<?=$item->category?>"><?=$item->category?></a></p>
 
                         <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i> <a href=''> <?=$item->city?></a></p>
 
@@ -29,6 +31,8 @@
                 </div>
             <? endforeach;?>
         </div>
+
+        <?endif;?>
 
 
         <div class="mt-4 count-page" value="<?=2?>">

@@ -56,7 +56,7 @@
             </div>
 
             <div class='row mt-4'>
-                <a href="/announce/category/achat-vente" class='col-md py-5 px-2 bg-light box5'>
+                <a href="http://axewebsolution.com" target="_blank" class='col-md py-5 px-2 bg-light box5'>
                     <div class='row '>
                         <h5 class="mx-auto text-center">Création de site web</h5>
                     </div>
@@ -100,7 +100,7 @@
                             <h5 class="card-title"><a href="<?=Router::url("announce/read", ['id' => $item->id, "slug" => $item->slug])?>"</a></h5>
                             <p class="card-text"><?=$item->price.'  '.strtoupper($item->devise)?></p>
 
-                            <p class="card-text"><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="/category/<?= strtolower($item->category)?>"><?=$item->category?></a></p>
+                            <p class="card-text"><i class="fa fa-folder-open" aria-hidden="true"></i> <a href="/announce/category/<?= strtolower($item->category)?>"><?=$item->category?></a></p>
 
                             <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i> <a href=''> <?=$item->city?></a></p>
 
