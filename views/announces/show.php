@@ -100,7 +100,7 @@
                 <div class='col-12'>
                     <h5 class='font-weight-bold'><i class="fa fa-info-circle" aria-hidden="true"></i> Détails de l'annonce</h5>
 
-                    <p class=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ID annonce : <span><?=$announce->id?></span></p>
+                    <p class=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ID annonce : <span><?=$announce->code?></span></p>
                     <p class=""><i class="fa fa-folder-open" aria-hidden="true"></i> <?=$announce->category?></p>
                     <p class=""><i class="fa fa-map-marker" aria-hidden="true"></i> <?=$announce->city?></p>
                     <p class=""><i class="fa fa-eye" aria-hidden="true"></i> <?=(new CounterView())->number_views($announce->id)?></p>
