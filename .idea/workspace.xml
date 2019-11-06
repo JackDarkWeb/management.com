@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4a6930-0e8f-4631-bae4-9d87d5ec2429" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/helpers/ModelJson.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/more/assets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/logout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layouts/nav-dashboard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/piles/script.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/piles/style.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Dispatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Dispatcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/helpers/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/includes.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/includes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/more/debug.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/more/debug.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/setting/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/setting/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_messages/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_messages/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/announces/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/announces/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/announces/recent_announce.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/recent_announce.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/announces/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/pills/script.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/admin-lock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/pills/style.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +142,7 @@
       <workItem from="1572884050632" duration="2629000" />
       <workItem from="1572933008663" duration="8487000" />
       <workItem from="1573006056908" duration="20118000" />
-      <workItem from="1573048230353" duration="542000" />
+      <workItem from="1573048230353" duration="5993000" />
     </task>
     <servers />
   </component>

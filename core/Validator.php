@@ -296,6 +296,22 @@ class Validator extends Book
 
     /**
      * @param $name
+     * @param $confirm_name
+     * @return bool
+     */
+    function password_confirm($name, $confirm_name){
+
+        $value = $this->post($confirm_name);
+        $confirm = sha1($value);
+
+        if($confirm === $this->password($name)){
+            return true;
+        }else
+            $this->errors[$confirm_name] = "Passwords are not same";
+    }
+
+    /**
+     * @param $name
      */
     public function remember($name){
         $value = $this->post($name);
