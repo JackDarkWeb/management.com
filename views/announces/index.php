@@ -55,6 +55,6 @@
 
     </div>
 </section>
-<script src="/public/js/announces.js"></script>
+<script src="<?=assets('js.announces')?>"></script>
 
 <?=ExtendsView::extend('footer')?>

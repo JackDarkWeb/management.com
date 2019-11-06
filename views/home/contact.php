@@ -24,7 +24,7 @@
                     <form method="post" class='col-12' action='' id="form-contact">
                         <div class="row">
                             <div class="col">
-                                <input type="text" name="first_name" id="first-name" class="form-control" placeholder="Votre Prenom" value="<?= $this->post('first_name')?>">
+                                <input type="text" name="first_name" id="first-name" class="form-control" placeholder="Votre Prenom" value="<?= $this->post('first_name')?>"/>
                                 <span class="text-danger error-first-name font-italic"><?= $this->error("first_name")?></span>
                             </div>
                             <div class="col">
@@ -57,6 +57,6 @@
 </section>
 
 
-<script src="/public/js/contact.js"></script>
+<script src="<?=assets('js.contact')?>"></script>
 
 <?=ExtendsView::extend('footer')?>

@@ -133,11 +133,11 @@ class Router
                     }
                 }
 
-                return '/'.$value['redirect'];
+                return DS.$value['redirect'];
                 //dd($match);
             }
         }
-        return '/'.$url;
+        return DS.$url;
     }
 
 }

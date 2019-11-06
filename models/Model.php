@@ -67,7 +67,7 @@ abstract class Model extends Db
 
             if(in_array($operator, $operators)){
 
-                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ";
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ORDER BY created_at DESC";
 
                 if(!$this->query($sql, [$value])->error()){
 
@@ -76,7 +76,7 @@ abstract class Model extends Db
             }
         }else{
 
-            $sql = "{$action} FROM {$table}";
+            $sql = "{$action} FROM {$table} ORDER BY created_at DESC";
             if(!$this->query($sql, [])->error()){
 
                 return $this;
@@ -247,6 +247,7 @@ abstract class Model extends Db
     function get($where){
 
         return $this->action('SELECT *', $this->table, $where)
+                    ->results()
             ;
     }
 

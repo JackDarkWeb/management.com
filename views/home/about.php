@@ -5,7 +5,7 @@
 <div class='container py-5'>
     <div class='row'>
         <div class='col-lg-6'>
-            <img src="/public/images/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg" class='img-fluid' alt="">
+            <img src="<?=assets('images.nastuh-abootalebi-yWwob8kwOCk-unsplash')?>" class='img-fluid' alt="">
         </div>
 
         <div class='col-lg-6 text-center mt-5'>
@@ -22,7 +22,7 @@ Intégrant les disciplines d'audit, de la communication stratégique, des relati
         </div>
 
         <div class='col-lg-6 order-first order-lg-last'>
-            <img src="/public/images/dane-deaner-_-KLkj7on_c-unsplash.jpg" class='img-fluid' alt="">
+            <img src="<?=assets('images.dane-deaner-_-KLkj7on_c-unsplash')?>" class='img-fluid' alt="">
         </div>
     </div>
 </div>

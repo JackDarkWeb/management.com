@@ -20,17 +20,7 @@ class ContactController extends Controller
 
             if ($this->success() == true) {
 
-
-                // I retrieve all messages json
-                $data = file_get_contents(db_message);
-
-                //I convert the Json into a table so I can add a new mew message
-                $data = json_decode($data, true);
-                $data[] = $messages;
-
-                //Convert back to Json
-                $data = json_encode($data);
-                file_put_contents(db_message, $data);
+                ModelJson::insert($messages);
 
                 $this->flash['message'] = "<div class='alert alert-success text-center'>Your message has been sent</div>";
             } else {

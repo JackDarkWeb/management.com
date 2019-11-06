@@ -89,6 +89,7 @@ class Validator extends Book
     }
 
 
+
     /**
      * @param string $name
      * @return string
@@ -338,9 +339,11 @@ class Validator extends Book
 
                     if(move_uploaded_file($tmp_name, $storage) == TRUE){
 
-                        return $new_name;
+                        $this->flash[$name] = "The file has been downloaded successfully";
 
+                        //return $new_name;
                         //return "The file has been downloaded successfully";
+
                     }else{
 
                         $this->errors[$name] = "There was a problem uploading";
@@ -358,6 +361,170 @@ class Validator extends Book
             $this->errors[$name] = "Select your file";
         }
 
+    }
+
+    function upload_multiple_files(string $name){
+
+        $files = $this->files($name);
+
+
+
+        if(!empty($files['name'][0])) {
+
+            $file_names = $files['name'];
+
+            $extensions = ['png', 'jpeg', 'jpg', 'gif', 'pdf', 'doc', 'txt'];
+            $file_extensions = [];
+
+            foreach ($file_names as $file_name) {
+
+
+                $file_extension_tmp = explode('.', $file_name);
+                $file_extensions[] = strtolower(end($file_extension_tmp));
+            }
+
+            $file_sizes = $files['size'];
+            $sizes = [];
+
+            foreach ($file_sizes as $file_size) {
+                $sizes[] = $file_size;
+            }
+
+            $file_errors = $files['error'];
+            $f_errors = [];
+
+            foreach ($file_errors as $file_error) {
+                $f_errors[] = $file_error;
+            }
+
+            $tmp_files = $files['tmp_name'];
+            $tmp_fs = [];
+            $new_file_names = [];
+
+            foreach ($tmp_files as $tmp_file) {
+
+                $tmp_fs[] = $tmp_file;
+
+                $new_file_names[] = strtolower($this->alphaNumCode(3));
+            }
+
+            //return $tmp_fs;
+
+            // $sizes;
+            $storage = [];
+            foreach ($file_names as $position => $file_name) {
+
+                if (in_array($file_extensions[$position], $extensions)) {
+
+                    if ($f_errors[$position] === 0) {
+
+                        //$re[] = $f_errors[$position];
+
+                        if ($sizes[$position] <= 3200000) {
+
+                            //create the storage location of the files
+                            $stone = PUBLIC_FOLDER . DS . "storage";
+                            if (!is_dir($stone)) {
+                                mkdir($stone);
+                            }
+
+                            $storage[] = $stone . DS . $new_file_names[$position] . '.' . $file_extensions[$position];
+
+
+                            if (move_uploaded_file($tmp_fs[$position], $storage[$position])) {
+
+                                return $new_file_names;
+
+                                //return "The file has been downloaded successfully";
+                            } else {
+
+                                if (!empty($file_name))
+                                    $this->errors[$name . $position] = "<strong>$file_name</strong>  was a problem uploading";
+                            }
+
+
+                        } else {
+
+                            if (!empty($file_name))
+                                $this->errors[$name . $position] = "<strong>$file_name</strong>   exceeds <span style='color: red'>32 Mo</span>";
+                        }
+
+                    } else {
+
+                        if (!empty($file_name))
+                            $this->errors[$name . $position] = "<strong>$file_name</strong>  errored with code  <span style='color: red'>$file_error</span> ";
+                    }
+
+
+                } else {
+
+                    if (!empty($file_name))
+                        $this->errors[$name . $position] = "<strong>$file_name</strong>  file extension  <span style='color: red'>$file_extensions[$position]</span> is not allowed";
+                }
+            }
+
+
+
+
+            /*foreach ($file_names as $position => $file_name){
+
+                $file_error  = $files['error'][$position];
+                $file_tmp    = $files['tmp_name'][$position];
+                $file_size   = $files['size'][$position];
+
+
+
+                if(in_array($file_extension, $extensions)){
+
+                    if($file_error === 0){
+                        $t = [];
+                        if($file_size <= 3200000){
+
+                            $new_file_name    = strtolower($this->alphaNumCode(3).'.'.$file_extension);
+                            $new_file_name_db = strtolower($this->alphaNumCode(3));
+
+                            return $t[] = $new_file_name;
+                            //create the storage location of the files
+                            $stone = PUBLIC_FOLDER.DS."storage";
+                            if(!is_dir($stone)){
+                                mkdir($stone);
+                            }
+
+                            $storage = $stone.DS.$new_file_name;
+
+                            if(move_uploaded_file($file_tmp, $storage)){
+
+                                return $new_file_name_db;
+
+                                //return "The file has been downloaded successfully";
+                            }else{
+
+                                if(!empty($file_name))
+                                    $this->errors[$name.$position] = "<strong>$file_name</strong>  was a problem uploading";
+                            }
+
+                        }else{
+
+                            if(!empty($file_name))
+                                $this->errors[$name.$position] = "<strong>$file_name</strong>   exceeds <span style='color: red'>32 Mo</span>";
+                        }
+
+                    }else{
+
+                        if(!empty($file_name))
+                            $this->errors[$name.$position] = "<strong>$file_name</strong>  errored with code  <span style='color: red'>$file_error</span> ";
+                    }
+
+                }else{
+
+                    if(!empty($file_name))
+                        $this->errors[$name.$position] = "<strong>$file_name</strong>  file extension  <span style='color: red'>$file_extension</span> is not allowed";
+                }
+
+            }*/
+
+        }else
+            $this->errors[$name] = 'Select your file';
     }
 
 

@@ -123,5 +123,4 @@ abstract class Helper
         return (str_replace("'", '-', $str));
     }
 
-
 }

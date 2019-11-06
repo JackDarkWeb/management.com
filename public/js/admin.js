@@ -41,25 +41,8 @@ $(function(){
                     alertMessage(this, '.error-email', 'Your email is incorrect');
                     error_email = false;
                 }else {
-                    $.ajax({
-                        url: 'controllers/check_email.php',
-                        type: 'POST',
-                        dataType: 'json',
-                        async: true,
-                        cache: false,
-                        data: {string:string},
-                        success:function (data) {
-
-                            if(data.error){
-
-                                alertMessage('#email', '.error-email', data.error);
-                                error_email = false;
-                            }else{
-                                deleteMessage('.error-email');
-                                error_email = true;
-                            }
-                        }
-                    });
+                    deleteMessage('.error-email');
+                    error_email = true;
 
                 }
             }
@@ -83,12 +66,14 @@ $(function(){
         }
     });
 
-    /*$(document).on('submit', '#form-login', function () {
+    $(document).on('submit', '#form-login', function (e) {
+
+        //e.preventDefault();
 
         let form = $(this);
         let email = form.find('#email').val();
         let pass = form.find('#password').val();
-
+        const ajax = true;
 
         if(error_email === false || error_pass === false){
 
@@ -100,9 +85,37 @@ $(function(){
                 requiredMessage('.error-password', 'Field password is required');
             }
             return false;
+        }else{
+
+            $.ajax({
+                url:'/admin',
+                method:'POST',
+                dataType:'json',
+                async: true,
+                cache:false,
+                data:{email:email, pass:pass, ajax:ajax},
+                success:function (response) {
+
+                    if(response.error === false){
+
+                        $('.result').html(response.message);
+
+                    }else{
+
+                        window.location = '/admin/dashboard';
+                    }
+                },
+                error: function (resp, status, error) {
+                    $('.result').html(error);
+                    //console.log(resp);
+                },
+            });
+            return false;
         }
 
-    });*/
+
+
+    });
 });
 
 
