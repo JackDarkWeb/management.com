@@ -74,24 +74,17 @@
             <hr class='row mt-1 mb-4'>
 
             <div class="card-deck mb-4">
+
+                <?foreach ($similar as $item):?>
                 <div class="card">
-                    <a href="<?=Router::url("announce/read", ['id' => $item->id, "slug" => $item->slug])?>"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
+                    <a href="<?=Router::url("announce/read", ['id' => $item->id, "slug" => $item->sug])?>"l><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <h5 class="card-title"><a href=/announce/1254789">Card title</a></h5>
+                        <h5 class="card-title"><a href="<?=Router::url("announce/read", ['id' => $item->id, "slug" => $item->sug])?>"><?=$item->title?></a></h5>
                     </div>
                 </div>
-                <div class="card">
-                    <a href=""><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href=""><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                </div>
+                <?endforeach;?>
+
+
             </div>
         </div>
 

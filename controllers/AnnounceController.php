@@ -7,7 +7,7 @@ class AnnounceController extends Controller
 
         $announce = new Announce();
 
-        $announces = $announce->builderGet( ['soft_delete','=', 0, 'AND', 'active', '=', 1]);
+        $announces = $announce->get( ['active', '=', 1]);
 
         //dd($announces);die();
         //dd(4*($this->request->page-1). ', 4');die();
@@ -23,7 +23,9 @@ class AnnounceController extends Controller
 
         $recent_announce = new Announce();
 
-        $latest = $recent_announce->latest( ['soft_delete','=', 0, 'AND', 'active', '=', 1],'ORDER BY created_at DESC', 0);
+        $latest = $recent_announce->latest( ['active', '=', 1], '0, 4');
+
+        //dd($recent_announce->slug($latest[0]->title));
 
 
         $this->view('announces.recent_announce', [
@@ -36,32 +38,39 @@ class AnnounceController extends Controller
 
         //dd($slug);die();
 
-        $announce = new Announce();
+        $Announce = new Announce();
+
 
         if($slug == null || $id == null){
 
-            $latest = $announce->latest( ['soft_delete','=', 0, 'AND', 'active', '=', 1],'ORDER BY created_at DESC', 0);
+            $latest = $Announce->latest( ['active', '=', 1], '0, 4');
+
             $this->view('announces.recent_announce',[
                 'latest' => $latest,
             ]);
         }
 
-        $announce = $announce->find(['id', '=', $id]);
+        $announce = $Announce->find(['id', '=', $id]);
 
         if(!isset($announce)){
             $this->e404("Product  not found");
         }
 
         if($slug !== $announce->slug){
-
-            //dd($posts->slug);die();
             $this->redirect('announce/read', ['id' => $id, 'slug' => $announce->slug], 301);
         }
 
+
+        $similar = $Announce->latest(['active', '=', 1, 'AND', 'category','=', $announce->category], '0, 3');
+
         $this->view('announces.show',[
             'announce' => $announce,
+            'similar'  => $similar
         ]);
     }
+
+
+
 
     function category(){
 

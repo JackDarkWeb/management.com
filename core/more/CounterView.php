@@ -45,7 +45,9 @@ class CounterView extends Model
      * @return mixed
      */
     function counter($article_id){
-        return $this->get(['announce_id','=', $article_id])
-                    ->count();
+
+            $count = $this->get(['announce_id','=', $article_id]);
+            //dd($count);
+            return count($count);
     }
 }

@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1f4a6930-0e8f-4631-bae4-9d87d5ec2429" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Validator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AnnounceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AnnounceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/more/CounterView.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/more/CounterView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Announce.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Announce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/announces/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/show.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +75,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/helpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
@@ -142,7 +146,10 @@
       <workItem from="1572884050632" duration="2629000" />
       <workItem from="1572933008663" duration="8487000" />
       <workItem from="1573006056908" duration="20118000" />
-      <workItem from="1573048230353" duration="5993000" />
+      <workItem from="1573048230353" duration="7006000" />
+      <workItem from="1573116329051" duration="873000" />
+      <workItem from="1573117304652" duration="1634000" />
+      <workItem from="1573119680086" duration="2702000" />
     </task>
     <servers />
   </component>

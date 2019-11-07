@@ -123,34 +123,50 @@ abstract class Model extends Db
     /**
      * @param $action
      * @param $table
-     * @param $wheres
-     * @param $orderBy
+     * @param $where
      * @param $limit
      * @return $this
      */
-    private function actionLimit($action, $table, $wheres, $orderBy, $limit){
+    private function actionLimit($action, $table, $where, $limit){
 
-        if(count($wheres) === 7){
+        if(gettype($where) == 'array' && count($where) === 3) {
 
-            $order = (gettype($orderBy) == 'string' && strlen($orderBy) > 8) ? $orderBy : '';
+            $operators = ['=', '!=', '<', '>', '<=', '>='];
 
-            $operators = ['=', '!=', '<', '>', '<=', '>=', 'AND', 'OR'];
+            $field = $where[0];
+            $operator = $where[1];
+            $value = $where[2];
 
-            $field_first    = $wheres[0];
-            $field_second    = $wheres[4];
-            $operator_first = $wheres[1];
-            $operator_second = $wheres[5];
-            $value_first    = $wheres[2];
-            $value_second    = $wheres[6];
-            $logique  = strtoupper($wheres[3]);
+            if (in_array($operator, $operators)) {
 
-            if(in_array($operator_first, $operators) && in_array($operator_second, $operators) && in_array($logique, $operators)){
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ORDER BY created_at DESC LIMIT {$limit}";
 
-                $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ? {$order} LIMIT {$limit}";
-
-                if(!$this->query($sql, [$value_first, $value_second])->error()){
+                if (!$this->query($sql, [$value])->error()) {
 
                     return $this;
+                }
+            }
+        }else{
+
+            if(count($where) === 7){
+                $operators = ['=', '!=', '<', '>', '<=', '>=', 'AND', 'OR'];
+
+                $field_first    = $where[0];
+                $field_second    = $where[4];
+                $operator_first = $where[1];
+                $operator_second = $where[5];
+                $value_first    = $where[2];
+                $value_second    = $where[6];
+                $logique  = strtoupper($where[3]);
+
+                if(in_array($operator_first, $operators) && in_array($operator_second, $operators) && in_array($logique, $operators)){
+
+                    $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ? ORDER BY created_at DESC LIMIT {$limit}";
+
+                    if(!$this->query($sql, [$value_first, $value_second])->error()){
+
+                        return $this;
+                    }
                 }
             }
         }
@@ -175,14 +191,13 @@ abstract class Model extends Db
 
 
     /**
-     * @param $wheres
-     * @param $orderBy
+     * @param $where
      * @param $limit
      * @return mixed
      */
-    function latest($wheres, $orderBy, $limit){
+    function latest($where,$limit){
 
-        return $this->actionLimit('SELECT * ', $this->table, $wheres, $orderBy, $limit.', 4')
+        return $this->actionLimit('SELECT * ', $this->table, $where, $limit)
                     ->results();
 
 
