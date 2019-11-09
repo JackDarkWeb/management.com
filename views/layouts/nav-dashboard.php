@@ -1,7 +1,7 @@
 
 <div class=''>
     <nav class="navbar navbar-expand-lg w-100 py-3" id='navbar' style="z-index: 10000; background-color: rgba(0,0,0,0.7); position: fixed; top: 0;">
-        <a class="navbar-brand font-weight-bold" href="/"><img src="/public/images/My-logo.png" alt="" class='img-fluid'></a>
+        <a class="navbar-brand font-weight-bold" href="/"><img src="<?=assets('images.My-logo')?>" alt="" class='img-fluid'></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

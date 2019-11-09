@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4a6930-0e8f-4631-bae4-9d87d5ec2429" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/Cookie.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/Session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AnnounceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AnnounceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/more/CounterView.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/more/CounterView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Announce.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Announce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/setting/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/setting/autoload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/announces/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/announces/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/nav-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/nav-dashboard.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +70,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\OSPanel\domains\management.com\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1Sj3vmsXtFpcwFO7T1lp9fz44vX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -75,21 +85,21 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\management.com\views" />
-      <recent name="D:\OSPanel\domains\website-skeleton\core" />
-      <recent name="D:\OSPanel\domains\website-skeleton" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\management.com\core" />
       <recent name="D:\OSPanel\domains\management.com\core\helpers" />
       <recent name="D:\OSPanel\domains\management.com\views\admin" />
       <recent name="D:\OSPanel\domains\management.com\core\more" />
       <recent name="D:\OSPanel\domains\management.com\public\js" />
-      <recent name="D:\OSPanel\domains\management.com\public\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\management.com\views" />
+      <recent name="D:\OSPanel\domains\website-skeleton\core" />
+      <recent name="D:\OSPanel\domains\website-skeleton" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -149,7 +159,12 @@
       <workItem from="1573048230353" duration="7006000" />
       <workItem from="1573116329051" duration="873000" />
       <workItem from="1573117304652" duration="1634000" />
-      <workItem from="1573119680086" duration="2702000" />
+      <workItem from="1573119680086" duration="3062000" />
+      <workItem from="1573165069843" duration="668000" />
+      <workItem from="1573207975990" duration="22000" />
+      <workItem from="1573240846796" duration="682000" />
+      <workItem from="1573277172454" duration="619000" />
+      <workItem from="1573304507103" duration="1237000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,6 @@ class AdminController extends Controller
 
         if ($_POST['ajax'] === 'true' || isset($_POST['submit'])) {
 
-            $messages = [];
 
             $email = $this->email_or_phone('email');
             $pass  = $this->password('pass');
@@ -19,9 +18,8 @@ class AdminController extends Controller
 
                 if($email === 'root@yahoo.fr' && $pass === '203f8d837e99a221cafc93d422249c9e91c27ee4'){
 
-                    session_start();
-                    $_SESSION['email'] = $email;
-                    $_SESSION['pass'] = $pass;
+                    Session::set('email', $email);
+                    Session::set('pass', $pass);
 
                 }else{
 
@@ -52,17 +50,15 @@ class AdminController extends Controller
 
     function dashboard(){
 
-        session_start();
-
         $announce = new Announce();
 
-        if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+        if(Session::check('email') && Session::check('pass')){
 
             $messages = ModelJson::findAll();
             $count    = ModelJson::count();
 
 
-            $announces = $announce->get(['soft_delete', '=', 0]);
+            $announces = $announce->get();
 
             //dd($all_messages);
             return $this->view('admin.admin-lock',[
@@ -71,7 +67,7 @@ class AdminController extends Controller
                 'count'    => $count,
             ]);
         }else
-            header('Location:/admin');
+            Session::destroy('/admin');
 
         die();
     }
@@ -106,8 +102,7 @@ class AdminController extends Controller
 
 
     function logout(){
-
-        return $this->view('admin.logout');
+        Session::destroy('/admin');
     }
 
 }

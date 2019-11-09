@@ -259,10 +259,9 @@ abstract class Model extends Db
      * @param $where
      * @return bool|Db
      */
-    function get($where){
+    function get($where = []){
 
-        return $this->action('SELECT *', $this->table, $where)
-                    ->results()
+        return $this->action('SELECT *', $this->table, $where)->results()
             ;
     }
 
