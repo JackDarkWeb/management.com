@@ -181,7 +181,7 @@
                     <div class="d-inline">
                         <p>
                             <img src="<?=assets('images.profile')?>" style="width:30px; height: 30px; border-radius: 50%">
-                            <strong>Root (<?=$_SESSION['email']?>)</strong><br/>
+                            <strong>Root (<?=Session::get('email')?>)</strong><br/>
                         </p>
                     </div>
                 </div>

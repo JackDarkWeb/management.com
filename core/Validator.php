@@ -5,6 +5,8 @@ use http\Cookie;
 
 class Validator extends Book
 {
+    use CalculateAge;
+
     protected $errors =  array();
     public $flash = array();
     public $months  = [1 => "Janvier", "Février",  "Mars",  "Avril", "Mai", "Juin",  "Juillet", "Août",  "Septembre", "Octobre", "Novembre", "Décembre"];
